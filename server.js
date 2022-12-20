@@ -52,9 +52,9 @@ const savePush = (req,res) =>{
 
 const sendPush = (req,res) =>{
     const payload = {
-        "title": "Saludos",
-        "body": "Holi",
-        "image": "https://sun9-9.userapi.com/c855128/v855128266/1b00a9/0UdMXtJtnLo.jpg",
+        "title": "Total Padel",
+        "body": "Notificación de prueba de Total Padel",
+        "image": "https://totalpadel.padelnow.app/assets/img/logo/logo2.png",
         "data": {
             "url": "https://totalpadel.padelnow.app/inicio"
           }
