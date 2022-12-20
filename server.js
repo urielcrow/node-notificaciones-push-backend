@@ -56,7 +56,7 @@ const sendPush = (req,res) =>{
         "body": "Holi",
         "image": "https://sun9-9.userapi.com/c855128/v855128266/1b00a9/0UdMXtJtnLo.jpg",
         "data": {
-            "url": "http://localhost:3000/inicio"
+            "url": "https://totalpadel.padelnow.app/inicio"
           }
         // "actions": [{
         //     "action": "explore",
