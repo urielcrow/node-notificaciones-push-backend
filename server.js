@@ -44,6 +44,8 @@ const savePush = (req,res) =>{
 
     const id = req.body.id;
 
+    console.log('Creando archivo');
+
     fs.writeFile(`./tokens/token-${id}-${name}.json`,data,(err)=>{
         //console.log(err)
     });
