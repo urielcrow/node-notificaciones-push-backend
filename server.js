@@ -69,21 +69,28 @@ const sendPush = (req,res) =>{
 
     fs.readdir(directoryPath,(err,files)=>{
         if(err)
-            console.log(err);
-        
+            return res.status(500).send('error');
+
+        let error = false;
+
         files.forEach(file=>{
-            const tokenRaw = fs.readFileSync(`${directoryPath}/${file}`);
-            const tokenParse = JSON.parse(tokenRaw);
+            if(file !== "data.txt"){
+                const tokenRaw = fs.readFileSync(`${directoryPath}/${file}`);
+                const tokenParse = JSON.parse(tokenRaw);
 
-            webpush.sendNotification( tokenParse, JSON.stringify(payload))
-            .then(res => {
-                // console.log('Enviado !!');
-            }).catch(err => {
-                // console.log('Error', err);
-            });
-
+                webpush.sendNotification( tokenParse, JSON.stringify(payload))
+                .then(resp => {
+                   error = false
+                }).catch(err => {
+                error = true
+                });
+            }
         });
-        
+
+        if(error)
+            res.status(500).send('error');
+        else
+            res.status(200).send('ok');
     });
 
 }
